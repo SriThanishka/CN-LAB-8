@@ -1,12 +1,7 @@
-# scheduler.py
-# Computer Networks Lab - Part 3: Output Port Scheduling Simulation
-# Implements FIFO (First-Come-First-Served) and Priority Scheduling
-
 from dataclasses import dataclass
 
-# ----------------------------------------------------------
 # 1. Packet Class
-# ----------------------------------------------------------
+
 @dataclass
 class Packet:
     source_ip: str
@@ -14,10 +9,7 @@ class Packet:
     payload: str
     priority: int  # 0 = High, 1 = Medium, 2 = Low
 
-
-# ----------------------------------------------------------
 # 2. FIFO Scheduler
-# ----------------------------------------------------------
 def fifo_scheduler(packet_list: list) -> list:
     """
     Simulate a FIFO (First-In-First-Out) scheduler.
@@ -27,9 +19,7 @@ def fifo_scheduler(packet_list: list) -> list:
     return packet_list.copy()
 
 
-# ----------------------------------------------------------
 # 3. Priority Scheduler
-# ----------------------------------------------------------
 def priority_scheduler(packet_list: list) -> list:
     """
     Simulate a Priority Scheduler.
@@ -40,11 +30,8 @@ def priority_scheduler(packet_list: list) -> list:
     return sorted(packet_list, key=lambda p: p.priority)
 
 
-# ----------------------------------------------------------
 # 4. Test Case (Run this file directly to test)
-# ----------------------------------------------------------
 if __name__ == "__main__":
-    # Create packets in their arrival order
     packets = [
         Packet("10.0.0.1", "10.0.0.2", "Data Packet 1", 2),
         Packet("10.0.0.1", "10.0.0.2", "Data Packet 2", 2),
